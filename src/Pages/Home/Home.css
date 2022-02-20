@@ -1,0 +1,33 @@
+.homeBanner {
+  height: 80vh;
+  background: url("../../Image/bannerbackground.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.custom-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.input-box {
+  width: 450px;
+  height: 40px;
+  border-radius: 20px;
+  border: 0px;
+  padding: 20px;
+  outline: 0px;
+  box-shadow: inset 0px 0px 2px grey;
+}
+.input-box:focus {
+  outline: 0px;
+}
+.custom-search-submit {
+  outline: 0px;
+  right: 0px;
+  border: 0px;
+  padding: 8px 40px !important;
+}
+.custom-search-submit:focus {
+  outline: 0px;
+}

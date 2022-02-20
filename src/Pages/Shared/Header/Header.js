@@ -3,11 +3,17 @@ import { Container, Nav } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import logo from "../../../Image/logo2.png";
-import './Header.css';
+import "./Header.css";
 const Header = () => {
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar
+        sticky="top"
+        collapseOnSelect
+        expand="lg"
+        bg="light"
+        variant="light"
+      >
         <Container>
           <Navbar.Brand>
             <Link to="/">
@@ -21,10 +27,16 @@ const Header = () => {
                 <Link className="text-decoration-none text-dark" to="/home">
                   <i className="fas fa-shopping-cart"></i>
                 </Link>
-                <Link className="text-decoration-none mx-lg-4 text-dark" to="/login">
+                <Link
+                  className="text-decoration-none mx-lg-4 text-dark"
+                  to="/login"
+                >
                   Login
                 </Link>
-                <Link className="text-decoration-none custom-singup" to="/singUp">
+                <Link
+                  className="text-decoration-none custom-singup"
+                  to="/singUp"
+                >
                   Sing Up
                 </Link>
               </div>
