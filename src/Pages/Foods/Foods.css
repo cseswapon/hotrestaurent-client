@@ -1,3 +1,20 @@
-.link-li>li{
-    cursor: pointer;
+.link-li > li {
+  cursor: pointer;
+  border-bottom: 2px solid rgba(252, 252, 252, 0);
+}
+.link-li > li:hover {
+  color: rgb(239 26 63);
+}
+.link-li-active {
+  color: rgb(239 26 63);
+  border-bottom: 2px solid rgb(239 26 63) !important;
+}
+.card {
+  border: none !important;
+  transition: all 0.5s;
+  padding: 10px;
+}
+.card:hover {
+  box-shadow: 0px 0px 5px #b3b0b0d9;
+  cursor: pointer;
 }

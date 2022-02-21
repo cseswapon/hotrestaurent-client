@@ -5,14 +5,17 @@ import Diner from "../Diner/Diner";
 import "./Foods.css";
 const Foods = () => {
   const [foods, setFoods] = useState([]);
-  const [breakFast, setBreakFast] = useState("Breakfast");
+  const [breakFast, setBreakFast] = useState([]);
   const [lunchs, setLunchs] = useState([]);
   const [diners, setDiners] = useState([]);
   useEffect(() => {
     fetch("/foods.json")
       .then((res) => res.json())
-      .then((data) => setFoods(data));
-  }, []);
+      .then((data) => {
+        setFoods(data);
+        handelBreakfast("Breakfast");
+      });
+  }, [foods.length]);
   const handelBreakfast = (br) => {
     const breakfast = foods.filter((breakfast) => breakfast.type === br);
     setBreakFast(breakfast);
@@ -37,19 +40,25 @@ const Foods = () => {
         <div className="text-center">
           <ul className="d-flex align-items-center justify-content-center link-li">
             <li
-              className="list-unstyled fw-bold"
+              className={`list-unstyled fw-bold ${
+                breakFast.length > 0 ? "link-li-active" : ""
+              }`}
               onClick={() => handelBreakfast("Breakfast")}
             >
               Breakfast
             </li>
             <li
-              className="list-unstyled mx-4 fw-bold"
+              className={`list-unstyled mx-4 fw-bold ${
+                lunchs.length > 0 ? "link-li-active" : ""
+              }`}
               onClick={() => handelLunch("Lunch")}
             >
               Lunch
             </li>
             <li
-              className="list-unstyled fw-bold"
+              className={`list-unstyled fw-bold ${
+                diners.length > 0 ? "link-li-active" : ""
+              }`}
               onClick={() => handelDiner("Dinner")}
             >
               Diner

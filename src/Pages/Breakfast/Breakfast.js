@@ -1,12 +1,31 @@
-import React from 'react';
+import React from "react";
+import { Col, Row } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
 
 const Breakfast = ({ breakfast }) => {
-    console.log(breakfast)
-    return (
-      <div>
-        <h1>Breakfast {breakfast.length}</h1>
-      </div>
-    );
+  const propsBreak = [...breakfast];
+  console.log(propsBreak);
+  return (
+    <div className="container">
+      <Row xs={1} md={3} className="g-3">
+        {propsBreak.map((bk, index) => (
+          <Col key={index}>
+            <Card className="text-center">
+              <Card.Img
+                variant="top"
+                className="card-img-top mx-auto w-50"
+                src={bk.images[0]}
+              />
+              <Card.Body>
+                <Card.Title className="fs-6">{bk.name}</Card.Title>
+                <Card.Text>{bk.shortDescription}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </div>
+  );
 };
 
 export default Breakfast;
