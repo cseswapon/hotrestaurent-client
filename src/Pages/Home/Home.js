@@ -1,4 +1,5 @@
 import React from "react";
+import Choose from "../Choose/Choose";
 import Foods from "../Foods/Foods";
 import "./Home.css";
 const Home = () => {
@@ -27,7 +28,8 @@ const Home = () => {
           </form>
         </div>
           </div>
-          <Foods/>
+      <Foods />
+      <Choose></Choose>
     </>
   );
 };
