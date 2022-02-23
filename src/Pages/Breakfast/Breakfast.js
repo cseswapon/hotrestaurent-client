@@ -1,13 +1,17 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-
+import {useNavigate} from 'react-router-dom';
 const Breakfast = ({ breakfast }) => {
+  const navigate = useNavigate();
+  const handelBreakfast = (id) => {
+    navigate(`food/${id}`);
+  };
   return (
     <div className="container">
       <Row xs={1} md={3} className="g-3">
         {breakfast.map((bk, index) => (
-          <Col key={index}>
+          <Col key={index} onClick={() => handelBreakfast(bk.id)}>
             <Card className="text-center">
               <Card.Img
                 variant="top"

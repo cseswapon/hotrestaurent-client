@@ -1,0 +1,14 @@
+.btn-neg:focus {
+  border: 0px solid white !important;
+  outline: 0px !important;
+}
+.btn-pos:focus {
+  border: 0px solid white !important;
+  outline: 0px !important;
+}
+.input-text:focus {
+  outline: 0px;
+}
+.img-click:hover {
+  cursor: pointer;
+}

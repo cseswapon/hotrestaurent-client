@@ -17,7 +17,7 @@ const Header = () => {
         <Container>
           <Navbar.Brand>
             <Link to="/">
-              <img src={logo} alt="avtor" style={{ width: "115px" }} />
+              <img src={logo} alt="avtor" style={{ width: "150px" }} />
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
