@@ -31,7 +31,7 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
               <div className="align-items-center">
-                <Link className="text-decoration-none text-dark" to="/home">
+                <Link className="text-decoration-none text-dark" to="/delivery">
                   <i className="fas fa-shopping-cart">
                     <span className="fw-bold ms-1 text-danger">0</span>
                   </i>

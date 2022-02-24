@@ -1,11 +1,11 @@
 .custom-singup {
-  background: #ef1a3f;
+  background: #ef1a3f !important;
   color: white;
   padding: 10px 24px;
   border-radius: 25px;
   transition: 0.5s;
 }
 .custom-singup:hover {
-  background: #eb0f34;
+  background: #eb0f34 !important;
   color: white;
 }

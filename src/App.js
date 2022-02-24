@@ -9,6 +9,7 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import Delivery from "./Pages/Delivery/Delivery";
+import OrderComplet from "./Pages/OrderComplet/OrderComplet";
 
 function App() {
   return (
@@ -31,6 +32,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Delivery />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="complete"
+            element={
+              <PrivateRoute>
+                <OrderComplet />
               </PrivateRoute>
             }
           />
