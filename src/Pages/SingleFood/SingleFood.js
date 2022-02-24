@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Button } from "react-bootstrap";
 import "./SingleFood.css";
 const SingleFood = () => {
   const [singleFood, setSingleFood] = useState([]);
-  const [index, setIndex] = useState(null)
+  const [index, setIndex] = useState(0);
+  const [count, setCount] = useState(1);
   const { id } = useParams();
   useEffect(() => {
     fetch(`https://red-onion-backend.herokuapp.com/food/${id}`)
@@ -13,12 +14,12 @@ const SingleFood = () => {
       .then((data) => setSingleFood(data))
       .catch((err) => alert(err));
   }, [id]);
-  const firstImage = (index) => {
-    setIndex(index);
-  }
-  const secoundImage = (index) => {
-    setIndex(index);
-  }
+  const firstImage = (i) => {
+    setIndex(i);
+  };
+  const secoundImage = (i) => {
+    setIndex(i);
+  };
   return (
     <div className="container">
       {singleFood.name && (
@@ -30,6 +31,7 @@ const SingleFood = () => {
               <h3 className="my-4">$ {singleFood.price}</h3>
               <ButtonGroup aria-label="Basic example" className="ms-3">
                 <Button
+                  onClick={() => setCount(count <= 1 ? 1 : count - 1)}
                   style={{ background: "#ef1a3f", border: 0 }}
                   className="fw-bold btn-neg"
                 >
@@ -38,11 +40,12 @@ const SingleFood = () => {
                 <input
                   className="text-center fw-bold input-text"
                   type="text"
-                  defaultValue={0}
+                  value={count}
                   style={{ width: 70, border: 0 }}
                   readOnly
                 />
                 <Button
+                  onClick={() => setCount(count + 1)}
                   style={{ background: "#ef1a3f", border: 0 }}
                   className="fw-bold btn-pos"
                 >
@@ -51,9 +54,11 @@ const SingleFood = () => {
               </ButtonGroup>
             </div>
             <div className="my-4">
+              <Link className="text-decoration-none" to="/cart">
               <p className="custom-singup d-inline">
                 <i className="fas fa-cart-arrow-down me-2"></i>Add Cart
               </p>
+              </Link>
             </div>
             <div className="d-flex align-items-center my-5">
               <div>
@@ -78,9 +83,9 @@ const SingleFood = () => {
           </div>
           <div className="col-md-6 col-12 text-center">
             <img
-              src={`singleFood.images[${index}]`}
+              src={singleFood.images[index]}
               alt="avtor"
-              className="img-fluid"
+              className="img-fluid animated-img"
             />
           </div>
         </div>

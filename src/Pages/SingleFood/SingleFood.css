@@ -12,3 +12,13 @@
 .img-click:hover {
   cursor: pointer;
 }
+.animated-img{
+  animation: animations 10s ease-in-out infinite;
+}
+@keyframes animations {
+  0%{
+    transform: rotate(0deg) translate(.5s)
+  }100%{
+    transform: rotate(360deg)
+  }
+}
