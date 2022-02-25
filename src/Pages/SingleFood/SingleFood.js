@@ -3,11 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Button } from "react-bootstrap";
 import "./SingleFood.css";
+import useFirebase from "../../hooks/useFirebase";
 const SingleFood = () => {
   const [singleFood, setSingleFood] = useState([]);
   const [index, setIndex] = useState(0);
   const [count, setCount] = useState(1);
   const { id } = useParams();
+  const { users } = useFirebase();
   useEffect(() => {
     fetch(`https://red-onion-backend.herokuapp.com/food/${id}`)
       .then((res) => res.json())
@@ -20,6 +22,30 @@ const SingleFood = () => {
   const secoundImage = (i) => {
     setIndex(i);
   };
+  /* const collection = {
+    email: users.email,
+    images: singleFood.images[0],
+    price: singleFood.price,
+    name: singleFood.name,
+    quantity: count,
+  }; */
+  /* const handelSend = () => {
+    console.log(collection);
+    fetch("http://localhost:5000/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(collection),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }; */
   return (
     <div className="container">
       {singleFood.name && (
@@ -54,10 +80,16 @@ const SingleFood = () => {
               </ButtonGroup>
             </div>
             <div className="my-4">
-              <Link className="text-decoration-none" to="/cart">
-              <p className="custom-singup d-inline">
-                <i className="fas fa-cart-arrow-down me-2"></i>Add Cart
-              </p>
+              <Link
+                onClick={() => {
+                  // handelSend();
+                }}
+                className="text-decoration-none"
+                to=""
+              >
+                <p className="custom-singup d-inline">
+                  <i className="fas fa-cart-arrow-down me-2"></i>Add Cart
+                </p>
               </Link>
             </div>
             <div className="d-flex align-items-center my-5">
